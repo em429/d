@@ -44,13 +44,18 @@ end
 # Returns the  mapped dictd command as a string.
 def dictd_mode_command(selected_mode, query)
    {
+    "gcide"        => "dict -d gcide '#{query}'",
     "define"       => "dict -d gcide '#{query}'",
     "def"          => "dict -d gcide '#{query}'",
     "wordnet"      => "dict -d wn '#{query}'",
+    "wn"           => "dict -d wn '#{query}'",
     "thesaurus"    => "dict -d moby-thesaurus '#{query}'",
     "thesa"        => "dict -d moby-thesaurus '#{query}'",
     "acronym"      => "dict -d vera '#{query}'",
     "acro"         => "dict -d vera '#{query}'",
+    "foldoc"       => "dict -d foldoc '#{query}'",
+    "compsci"      => "dict -d foldoc '#{query}'",
+    "hack"         => "dict -d foldoc '#{query}'",
   }[selected_mode]
 end
 
