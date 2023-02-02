@@ -31,8 +31,8 @@
 ##
 ##
 
-GTRANSLATE_CMD_PATH = "#{Dir.home}/bin/dict/gtranslate"
-DICT_CMD_PATH = "dict"
+D_GTRANSLATE_BIN_PATH = ENV["GTRANSLATAE_BIN_PATH"] || "#{Dir.home}/bin/gtranslate"
+D_DICT_BIN_PATH = ENV["D_DICT_BIN_PATH"] || "dict"
 
 # Command builder for dictd lang-to-lang translations
 def dictd_translate_command(source_lang, target_lang, query)
@@ -78,8 +78,10 @@ def do_optional_gtranslate(source_lang, target_lang, query)
   puts "\nContinue to Google Translate?"
   reply = STDIN.gets.chomp
 
+  # google-translate language codes tend to be the same as our FreeDict dictionary names,
+  # so no additional mapping needs to be done. (I certainly haven't tested then alL though!)
   if reply.downcase == "y"
-    gtranslate = "#{GTRANSLATE_CMD_PATH} -s #{source_lang} -t #{target_lang} '#{query}'"
+    gtranslate = "#{D_GTRANSLATE_BIN_PATH} -s #{source_lang} -t #{target_lang} '#{query}'"
     puts `#{gtranslate}`
     return
   end
