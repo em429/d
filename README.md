@@ -27,7 +27,7 @@ See the `dictd_mode_command` function below for the supported
 modes; it's easy to add any that dictd supports.
 
 
-You can quickly translate language to language as well:
+You can quickly translate arbitrary language to language pairs as well:
 
 ```
 d eng hun to preen
