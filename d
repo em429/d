@@ -1,13 +1,11 @@
-#! /usr/bin/env nix-shell
-#! nix-shell -i ruby -p ruby_3_1
-#
-# The above shebang replaces #!/usr/bin/env ruby with something more flexible for nix
-# The -i indicates the interpreter to use, -p the pacages to install, as usual.
+#! /usr/bin/env ruby
 
 ###
 ## d is a "shortcut script" on top of dictd and gtranslate
 ## _______________________________________________________
-##
+## 
+## IF gtranslate and dict is not in your $PATH, make sure to define
+## D_GTRANSLATE_BIN_PATH and D_DICT_BIN_PATH environment variables!
 ##
 ## Basic English usage:
 ## --------------------
@@ -31,7 +29,7 @@
 ##
 ##
 
-D_GTRANSLATE_BIN_PATH = ENV["GTRANSLATAE_BIN_PATH"] || "#{Dir.home}/bin/gtranslate"
+D_GTRANSLATE_BIN_PATH = ENV["GTRANSLATAE_BIN_PATH"] || "gtranslate"
 D_DICT_BIN_PATH = ENV["D_DICT_BIN_PATH"] || "dict"
 
 # Command builder for dictd lang-to-lang translations
